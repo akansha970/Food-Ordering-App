@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:food_ordering_app/animation/FadeAnimation.dart';
 import 'package:food_ordering_app/models/ApiError.dart';
@@ -17,14 +19,14 @@ class _DishEditFormState extends State<DishEditForm> {
   TextEditingController DishPrice = new TextEditingController();
   TextEditingController RestaurantId = new TextEditingController();
 
-  int IsAvailable;
+  late int IsAvailable;
   String colorGroupValue = '';
-  String valueChoose;
+  late String valueChoose;
   List listItem = ['starter', 'main course', 'dessert', 'snack', 'beverage'];
 
   @override
   Widget build(BuildContext context) {
-    int args = ModalRoute.of(context).settings.arguments as int;
+    int args = ModalRoute.of(context)?.settings.arguments as int;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff409439),
