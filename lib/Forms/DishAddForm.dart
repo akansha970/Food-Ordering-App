@@ -3,8 +3,6 @@ import 'package:food_ordering_app/animation/FadeAnimation.dart';
 import 'package:food_ordering_app/models/ApiError.dart';
 import 'package:food_ordering_app/models/ApiRespose.dart';
 import 'package:food_ordering_app/services/RestServices.dart';
-import 'package:food_ordering_app/services/UserServices.dart';
-import 'package:food_ordering_app/views/Restaurant/AdminDashboard.dart';
 import 'package:food_ordering_app/widgets/msgToast.dart';
 
 class DishAddForm extends StatefulWidget {
@@ -18,7 +16,7 @@ class _DishAddFormState extends State<DishAddForm> {
   TextEditingController DishPrice = new TextEditingController();
   TextEditingController RestaurantID = new TextEditingController();
   //int IsAvailable = 0;  String colorGroupValue = '';
-  String valueChoose;
+  late String valueChoose;
   List listItem = ["starter", "main course", "desserts"];
 
   @override
@@ -151,7 +149,7 @@ class _DishAddFormState extends State<DishAddForm> {
                 value: valueChoose,
                 onChanged: (newValue) {
                   setState(() {
-                    valueChoose = newValue;
+                    // valueChoose = newValue;
                   });
                 },
                 items: listItem.map((valueItem) {
@@ -211,6 +209,7 @@ class _DishAddFormState extends State<DishAddForm> {
       RestaurantID.text,
     );
 
+    // ignore: unnecessary_null_comparison
     if ((_apiResponse.ApiError as ApiError) == null) {
       Navigator.pushNamedAndRemoveUntil(
         context,
